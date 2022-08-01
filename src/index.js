@@ -38,7 +38,17 @@ const MORSE_TABLE = {
 };
 
 function decode(expr) {
-    // write your solution here
+    let binCode = expr.split('');
+const letters =[];
+let str;
+while(binCode.length>0) {
+   str=binCode.splice(0,10).join('');
+   str = str.replace(/10/g,'.');
+   str = str.replace(/11/g,'-');
+   str = str.replace(/00/g,'');
+    letters.push(MORSE_TABLE[str]?MORSE_TABLE[str]:' ');
+   }
+   return letters.join('');
 }
 
 module.exports = {
